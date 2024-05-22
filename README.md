@@ -31,6 +31,32 @@ class TicTacToeGame:
         self._winning_combos = []
         self._setup_board()
 ```
+ ### Abstraction
 
-efggg
+Abstraction involves hiding the complex implementation details and exposing only the necessary parts. This is done by providing a clear interface for the interaction.
+
+**Where it's used:**
+1.Methods: The methods like process_move, toggle_player, is_valid_move, and reset_game in TicTacToeGame provide a clear interface for manipulating the game's state without exposing the underlying data structures directly.
+2.GUI Methods: Methods in TicTacToeBoard such as _create_menu, _create_board_display, and _create_board_grid abstract the complexity of creating the GUI components and provide a simple interface to interact with.
+
+**Example**
+```python
+1) def toggle_player(self):
+    """Return a toggled player."""
+    self.current_player = next(self._players)
+2) def process_move(self, move):
+    """Process the current move and check if it's a win."""
+    row, col = move.row, move.col
+    self._current_moves[row][col] = move
+    for combo in self._winning_combos:
+        results = set(self._current_moves[n][m].label for n, m in combo)
+        is_win = (len(results) == 1) and ("" not in results)
+        if is_win:
+            self._has_winner = True
+            self.winner_combo = combo
+            break
+
+
+
+
 
