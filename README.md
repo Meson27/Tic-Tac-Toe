@@ -38,6 +38,7 @@ Abstraction involves hiding the complex implementation details and exposing only
 
 **Where it's used:**
 1.**Methods:** The methods like `process_move`, `toggle_player`, `is_valid_move`, and `reset_game` in TicTacToeGame provide a clear interface for manipulating the game's state without exposing the underlying data structures directly.
+
 2.**GUI Methods:** Methods in TicTacToeBoard such as `_create_menu`, `_create_board_display`, and `_create_board_grid` abstract the complexity of creating the GUI components and provide a simple interface to interact with.
 
 **Example**
